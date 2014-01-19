@@ -1,0 +1,20 @@
+body {
+    background-color: silver;
+}
+
+#header{
+   
+    background: #202020;
+    color: white;
+}
+
+#content{
+    background: white;
+ 
+}
+
+#footer {
+    background: #202020;
+    color: white;
+   
+}
