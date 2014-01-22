@@ -7,6 +7,8 @@ class DashboardController extends Controller
         parent::__construct();
         
         $this->view->js = array('dashboard/js/default.js');
+        $this->view->publicJs = array('fullcalendar');
+        $this->view->publicCss = array('fullcalendar');
     }
     function index()
     {

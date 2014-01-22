@@ -2,7 +2,10 @@
 
 class View {
 
-    public $js = array();
+    public $js;
+    public $publicJs;
+    public $publicCss;
+    
     function __construct() {
      
     }

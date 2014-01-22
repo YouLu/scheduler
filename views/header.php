@@ -8,6 +8,23 @@
         <script src="<?php echo basePath; ?>public/js/jquery-ui-1.10.3.custom.js"></script>
         
         <?php
+            //public css
+            if(isset($this->publicCss))
+            {
+                foreach($this->publicCss as $css)
+                {
+                    echo '<link rel="stylesheet" type="text/css" href="'.basePath.'public/css/'.$css.'.css" />';
+                }
+            }
+            //public js
+            if(isset($this->publicJs))
+            {
+                foreach($this->publicJs as $js)
+                {
+                    echo '<script type="text/javascript" src="'.basePath.'public/js/'.$js.'.js"></script>';
+                }
+            }
+            //views js
             if(isset($this->js))
             {
                 foreach($this->js as $js)
