@@ -11,7 +11,7 @@ class SigninController extends Controller
     }
     public function index()
     {
-        $this->view->js = array('signin/js/default.js');
+        $this->view->js = array('signin/js/default');
         $this->view->render('signin/index', FALSE, FALSE);
     }
     function run ()

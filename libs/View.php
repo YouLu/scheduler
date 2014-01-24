@@ -3,6 +3,7 @@
 class View {
 
     public $js;
+    public $css;
     public $publicJs;
     public $publicCss;
     

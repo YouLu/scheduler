@@ -24,12 +24,20 @@
                     echo '<script type="text/javascript" src="'.basePath.'public/js/'.$js.'.js"></script>';
                 }
             }
+            //view css
+            if(isset($this->css))
+            {
+                foreach($this->css as $css)
+                {
+                    echo '<link rel="stylesheet" type="text/css" href="'.basePath.'views/'.$css.'.css" />';
+                }
+            }
             //views js
             if(isset($this->js))
             {
                 foreach($this->js as $js)
                 {
-                    echo '<script type="text/javascript" src="'.basePath.'views/'.$js.'"></script>';
+                    echo '<script type="text/javascript" src="'.basePath.'views/'.$js.'.js"></script>';
                 }
             }
         ?>
