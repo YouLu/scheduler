@@ -1,10 +1,9 @@
 <?php
-class Dashboard  extends Model
-{
 
+class Meeting  extends Model
+{
     public function __construct() {
         parent::__construct();
-        
     }
 }
-?>
+

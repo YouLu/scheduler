@@ -6,6 +6,7 @@
         
         <script src="<?php echo basePath; ?>public/js/jquery.js"></script>
         <script src="<?php echo basePath; ?>public/js/jquery-ui-1.10.3.custom.js"></script>
+        <script src="<?php echo basePath; ?>public/js/default.js"></script>
         
         <?php
             //public css
@@ -47,10 +48,9 @@
         <?php
         if($header)
         {?>
-            <div id="header" >
+        <div id="header" style="height: 25px;">
                 Header 
-                <br/>
-
+                
             </div>
         <?php 
         } ?>

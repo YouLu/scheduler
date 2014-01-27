@@ -7,6 +7,8 @@ class View {
     public $publicJs;
     public $publicCss;
     
+    public $data;
+    
     function __construct() {
      
     }

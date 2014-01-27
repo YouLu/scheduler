@@ -1,4 +1,6 @@
 body {
+    margin: 0px;
+    padding: 0px;
     background-color: silver;
 }
 
@@ -17,4 +19,14 @@ body {
     background: #202020;
     color: white;
    
+}
+textarea
+{
+    border-color: lightgrey;
+    border-style: solid;
+}
+input[type=text]
+{
+    border-color: lightgrey;
+    border-style: solid;
 }

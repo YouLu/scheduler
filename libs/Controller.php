@@ -21,7 +21,7 @@ class Controller
             if($signedIn == false)
             {
                     Session::destroy();
-                    header('location: '.basePath.'Signin');
+                    header('location: '.basePath.'signin');
                     exit;
             } 
         }

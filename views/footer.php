@@ -3,7 +3,7 @@
 <?php
 if($footer)
 {?>
-<div id="footer">
+<div id="footer" style="height: 25px;">
     Footer
 </div>
 <?php
