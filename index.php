@@ -1,7 +1,5 @@
 <?php
-
 require 'config/paths.php';
-
 /*
 require 'libs/bootstrap.php';
 require 'libs/controller.php';
