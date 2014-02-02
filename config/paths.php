@@ -1,7 +1,7 @@
 <?php
 //for local host
 define('basePath', '/scheduler/');
-define('libs', '/libs/');
+define('libs', $_SERVER['DOCUMENT_ROOT'].'/scheduler/libs/');
 define('basePathForRequire', $_SERVER['DOCUMENT_ROOT'].'/scheduler/');
 
 define('DB_TYPE', 'mysql');

@@ -49,10 +49,18 @@
         if($header)
         {?>
         <div id="header" style="height: 25px;">
-                Header 
+                Scheduler
                 
             </div>
         <?php 
         } ?>
-        
-        <div id="content">
+        <?php
+        if($menue)
+        {?>
+            <div id="menuSection">
+                <ul id="menu">
+                    <li><a href="#">Employee</a></li>
+                    <li><a href="#">Schedule</a></li>
+                    <li><a href="#">Meeting</a></li>
+                </ul>
+            </div><?php }?><div id="content">

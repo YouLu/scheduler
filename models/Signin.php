@@ -25,7 +25,7 @@ class Signin extends Model
             Session::init();
             Session::set('role', $data['role']);
             Session::set('signedIn', true);
-            header('location: '.basePath.'meeting');
+            header('location: '.basePath.'meeting/createmeeting');
         }
         else
         {

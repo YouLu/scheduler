@@ -13,7 +13,7 @@ class View {
      
     }
     
-    public function render($name, $header = true, $footer = true, $noInclude = false)
+    public function render($name, $header = true, $footer = true, $menue=true, $noInclude = false)
     {
         if($noInclude == true)
         {

@@ -12,7 +12,7 @@ class SigninController extends Controller
     public function index()
     {
         $this->view->js = array('signin/js/default');
-        $this->view->render('signin/index', FALSE, FALSE);
+        $this->view->render('signin/index', FALSE, FALSE, FALSE);
     }
     function run ()
     {

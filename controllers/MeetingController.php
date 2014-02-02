@@ -5,42 +5,47 @@ class MeetingController extends Controller
     {
         parent::__construct();
         
-        $this->view->js = array('meeting/js/default');
+        
         $this->view->publicJs = array('fullcalendar');
         $this->view->publicCss = array('fullcalendar');
         
-        $this->view->data['committees'] = $this->getCommittees();
+        $this->view->data['employees'] = $this->getEmployees();
     }
     public function getMeetingAvailability()
     {
+
+        $employeeIdsJson = $_GET['employeeIdsJson'];
         
-    }
-    public function getCommitteeMembers()
-    {
-        $committeeId = $_GET['committeeId'];
+        $employeeIds = json_decode($employeeIdsJson, true);
+       
+        $length = $_GET['length'];
         
-        $committeeMembers = array(
-            1 => array(array('id'=>1, 'name'=>'employee 1')),
-            2 => array(
-                array('id'=>2, 'name'=>'employee 2'),
-                array('id'=>3, 'name'=>'employee 3')
-                ),
-            3 => array(array('id'=>3, 'name'=>'employee 3'))
+        $availability = array(
+            array('room'=>1, 'start'=>'Feb 12, 2014 8am', 'end'=>'Feb 12, 2014 10am'),
+            array('room'=>2, 'start'=>'Feb 13, 2014 1pm', 'end'=>'Feb 13, 2014 3pm')
         );
-        $selectedCommitteeMembers = $committeeMembers[$committeeId];
-        echo json_encode($selectedCommitteeMembers);
-        //echo json_encode(array($committeeId));
+        
+        echo json_encode($availability);
+       
     }
-    private function getCommittees()
+    
+    private function getEmployees()
     {
-        return $committees = array(
-            array('id'=>'1', 'name'=>'committee 1'), 
-            array('id'=>'2', 'name'=>'committee 2'), 
-            array('id'=>'3', 'name'=>'committee 3')
+        return $employees = array(
+            array('id'=>'1', 'name'=>'employee 1'), 
+            array('id'=>'2', 'name'=>'employee 2'), 
+            array('id'=>'3', 'name'=>'employee 3')
             );
     }
-            function index()
+    public function createMeeting()
     {
+        $this->view->js = array('meeting/js/createMeeting');
+        $this->view->css = array('meeting/css/createMeeting');
+        $this->view->render('meeting/createMeeting');
+    }
+    public function index()
+    {
+        $this->view->js = array('meeting/js/default');
         $this->view->render('meeting/index');
     }
     

@@ -10,6 +10,4 @@ $(document).ready(function()
     });  
 */
 
-    $('#content').css('height', $(window).height() - 50 +'px');
-
 });

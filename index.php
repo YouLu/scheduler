@@ -1,5 +1,5 @@
 <?php
-require 'config/paths.php';
+require $_SERVER['DOCUMENT_ROOT'].'/scheduler/config/paths.php';
 /*
 require 'libs/bootstrap.php';
 require 'libs/controller.php';

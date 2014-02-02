@@ -1,7 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: silver;
+    background-color: white;
 }
 
 #header{
@@ -9,9 +9,38 @@ body {
     background: #202020;
     color: white;
 }
+#menuSection
+{
+    box-sizing:border-box;
+    width: 200px;
+    margin-left: 50px;
+    padding-right: 10px;
+    padding-top: 10px;
+    display: inline-block;
+    vertical-align: top;
+    
+    background: white;
+    
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-color: lightgray;
+}
+#menu
+{
+
+}
 
 #content{
+    box-sizing:border-box;
+    padding-top: 10px;
+    padding-right: 50px;
+    font-size: large;
     background: white;
+    color: #282828;
+    
+    display: inline-block;
+    
+    overflow-y: scroll;
  
 }
 
@@ -24,9 +53,39 @@ textarea
 {
     border-color: lightgrey;
     border-style: solid;
+    font-size: large;
+    color: #282828;
+  
 }
 input[type=text]
 {
     border-color: lightgrey;
     border-style: solid;
+    height: 25px;
+    font-size: large;
+    color: #282828;
 }
+select
+{
+    border-color: lightgrey;
+    border-style: solid;
+    height: 25px;
+    font-size: large;
+    color: #282828;
+}
+
+hr
+{
+    border-top-style: solid;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    
+    border-color: lightgray;
+}
+.section
+{
+    padding-left: 10px;
+}
+
+
