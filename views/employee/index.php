@@ -1,5 +1,5 @@
 
-<div class="section"
+<div class="section">
     <span style="font-size: larger; font-weight: bold;">Employee</span>
 
 </div>

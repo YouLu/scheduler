@@ -1,2 +1,13 @@
-
+.meeting
+{
+    width:100%;
+    border-style:solid;
+    border-width:1px;
+    
+    border-color: lightgrey;
+    margin-top: 10px;
+    padding: 5px;
+    
+    box-sizing:border-box;
+}
 

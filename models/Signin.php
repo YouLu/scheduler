@@ -24,6 +24,7 @@ class Signin extends Model
         {
             Session::init();
             Session::set('role', $data['role']);
+            Session::set('id', $data['id']);
             Session::set('signedIn', true);
             if($data['role'] == 'admin')
             {

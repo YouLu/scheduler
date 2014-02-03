@@ -56,9 +56,49 @@ class MeetingController extends Controller
 
     public function index()
     {
+        $this->view->data['meetings'] = $this->getMeetings();
+        
         $this->view->css = array('meeting/css/default');
         $this->view->js = array('meeting/js/default');
         $this->view->render('meeting/index');
+    }
+    private function getMeetings()
+    {
+        return array(
+            array('name'=>'meeting1',
+                'description'=>'test meeting',
+                'start'=> '2/3/2014 8.30am',
+                'end'=> '2/3/2014 10.30am',
+                'owner' => array('id'=>2, 'name'=>'employee2'),
+                'members' => array(
+                    array('id'=>2, 'name'=>'employee2'),
+                    array('id'=>3, 'name'=>'employee3')
+                    )
+                ),
+            
+            array('name'=>'meeting2',
+                'description'=>'test meeting',
+                'start'=> '2/3/2014 8.30am',
+                'end'=> '2/3/2014 10.30am',
+                'owner' => array('id'=>1, 'name'=>'employee1'),
+                'members' => array(
+                    array('id'=>2, 'name'=>'employee2'),
+                    array('id'=>3, 'name'=>'employee3')
+                    )
+                ),
+            
+            array('name'=>'meeting1',
+                'description'=>'test meeting',
+                'start'=> '2/3/2014 8.30am',
+                'end'=> '2/3/2014 10.30am',
+                'owner' => array('id'=>1, 'name'=>'employee1'),
+                'members' => array(
+                    array('id'=>2, 'name'=>'employee2'),
+                    array('id'=>3, 'name'=>'employee3')
+                    )
+                )
+            
+        );
     }
     
     

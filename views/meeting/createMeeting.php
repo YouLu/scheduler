@@ -1,4 +1,4 @@
-<div class="section"
+<div class="section">
     <span style="font-size: larger; font-weight: bold;">Create Meeting</span>
     <span style="float: right;">
         <a href="/scheduler/meeting"class="topLinkButton">Meetings</a>

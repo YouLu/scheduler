@@ -143,7 +143,7 @@ $(document).ready(function()
                     var start = val.start;
                     var end = val.end;
 
-                    $('#results').append('<div class="ui-corner-all result" style="box-sizing:border-box;"'+
+                    $('#results').append('<div class="ui-corner-all result"'+
                             ' resultStatus=""'+
                             ' room="'+room+'"'+
                             ' start="'+start+'"'+
@@ -153,7 +153,7 @@ $(document).ready(function()
                             +'<b>start: </b>'+start + '<br/>'
                             +'<b>end: </b>'+end
                             +'</div>');
-                    //style="width:100%;border-style:solid;border-size:1px;"
+                  
                 });
             });
         }
