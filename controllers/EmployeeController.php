@@ -10,7 +10,7 @@ class EmployeeController extends Controller
     public function index()
     {
         $this->view->js = array('employee/js/default');
-        $this->view->render('employee/index', FALSE, FALSE);
+        $this->view->render('employee/index');
     }
 }
 ?>

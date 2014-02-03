@@ -1,21 +1,10 @@
-<div id="tabs">
-	  <ul>
-	    <li><a href="#tabs-1">Schedule</a></li>
-	    <li><a href="#tabs-2">Meetings</a></li>
-	    <li><a href="#tabs-3">Profile</a></li>
-	  </ul>
-	  <div id="tabs-1">
-  		<p>Schedule.</p>
-	  <div id="tabs-2">
-	    <p>Meetings.</p>
-		<button>Meeting-1</button><br>
-		<button>Meeting-2</button><br>
-		<button>Meeting-3</button><br>
-		<button>Create Meeting</button>
-	  </div>
-	  <div id="tabs-3">
-  		<form>
-  			<p>Type: Employee</p>
+
+<div class="section"
+    <span style="font-size: larger; font-weight: bold;">Employee</span>
+
+</div>
+<hr/>
+<form>
   			<p>UserID: 12345</p>
   			<p>First Name:
   				<input type="text" name="FirstName" value="Shih-Wei">
@@ -30,6 +19,4 @@
   				<input type="text" name="EmailName" value="shihwei@csupomona.edu">
   			</p>
   			<input type="submit" value="Save">
-  		</form>
-  		</div>
-	</div>
+</form>

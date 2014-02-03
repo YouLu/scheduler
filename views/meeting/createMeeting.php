@@ -1,5 +1,8 @@
 <div class="section"
-     <h3 style="font-size: larger; font-weight: bold;">Create Meeting</h3>
+    <span style="font-size: larger; font-weight: bold;">Create Meeting</span>
+    <span style="float: right;">
+        <a href="/scheduler/meeting"class="topLinkButton">Meetings</a>
+    </span>
 </div>
 <hr/>
 

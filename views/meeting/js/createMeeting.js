@@ -1,8 +1,7 @@
 
 $(document).ready(function() 
 {    
-    var speed = 'fast';
-
+    
     /*
     $("#id").click(function() 
     {    
@@ -10,11 +9,7 @@ $(document).ready(function()
         return false;
     });  
 */
-    $("#searchAgain").click(function() 
-    {    
-        $("#form").slideDown(speed);
-        $("#calendarSection").hide('slow');
-    }); 
+ 
 //    $("#search").click(function() 
 //    {    
 //        $("#form").slideUp(speed);

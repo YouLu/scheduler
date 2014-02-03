@@ -5,6 +5,7 @@ $(document).ready(function()
     $('textarea').addClass("ui-corner-all");
     $('input:text, input:password').addClass("ui-corner-all");
     $('button, input:submit').button();
+    $('.topLinkButton').button();
     
     $('#menuSection').css('height', $(window).height() - 50 +'px');
     

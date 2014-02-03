@@ -56,6 +56,7 @@ class MeetingController extends Controller
 
     public function index()
     {
+        $this->view->css = array('meeting/css/default');
         $this->view->js = array('meeting/js/default');
         $this->view->render('meeting/index');
     }

@@ -1,12 +1,15 @@
 <!Doctype html>
 <html>
     <header>
-        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/default.css" />
+        
         <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/jquery-ui-1.10.3.custom.css" />
         
         <script src="<?php echo basePath; ?>public/js/jquery.js"></script>
         <script src="<?php echo basePath; ?>public/js/jquery-ui-1.10.3.custom.js"></script>
+        
         <script src="<?php echo basePath; ?>public/js/default.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/default.css" />
+        
         
         <?php
             //public css
@@ -56,11 +59,26 @@
         } ?>
         <?php
         if($menue)
-        {?>
-            <div id="menuSection">
-                <ul id="menu">
-                    <li><a href="#">Employee</a></li>
-                    <li><a href="#">Schedule</a></li>
-                    <li><a href="#">Meeting</a></li>
-                </ul>
-            </div><?php }?><div id="content">
+        {
+            if(Session::get('role') == 'admin')
+            {?>
+                <div id="menuSection">
+                    <ul id="menu">
+                        <li><a href="#">Employee</a></li>
+                        <li><a href="#">Room</a></li>
+                        <li><a href="#">Committee</a></li>
+                    </ul>
+                </div><?php
+            }
+            else
+            {
+            ?><div id="menuSection">
+                    <ul id="menu">
+                        <li><a href="/scheduler/employee">Employee</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="/scheduler/meeting">Meeting</a></li>
+                    </ul>
+                </div><?php 
+            }
+            
+        }?><div id="content">
