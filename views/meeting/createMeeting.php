@@ -72,6 +72,6 @@
 <button id="createMeetingButton" >Create</button>
 </div>
 
-<div id="errorMessage" title="Errors">
+<div id="messageBox" title="">
     
 </div>

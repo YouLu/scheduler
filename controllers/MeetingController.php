@@ -4,12 +4,7 @@ class MeetingController extends Controller
     public function __construct()
     {
         parent::__construct();
-        
-        
-        $this->view->publicJs = array('fullcalendar');
-        $this->view->publicCss = array('fullcalendar');
-        
-        $this->view->data['employees'] = $this->getEmployees();
+
     }
     public function getMeetingAvailability()
     {
@@ -39,10 +34,26 @@ class MeetingController extends Controller
     }
     public function createMeeting()
     {
+
+        $this->view->data['employees'] = $this->getEmployees();
+        
         $this->view->js = array('meeting/js/createMeeting');
         $this->view->css = array('meeting/css/createMeeting');
         $this->view->render('meeting/createMeeting');
     }
+    public function createMeetingInDatabase()
+    {
+        $employeeIdsJson = $_POST['employeeIdsJson'];
+        $name = $_POST['name'];
+        $description = $_POST['description'];
+        $room = $_POST['room'];
+        $start = $_POST['start'];
+        $end = $_POST['end'];
+        
+        echo $employeeIdsJson;
+        
+    }
+
     public function index()
     {
         $this->view->js = array('meeting/js/default');

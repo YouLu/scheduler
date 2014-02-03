@@ -113,22 +113,7 @@ $(document).ready(function()
                     '><button class="deleteSelectedEmployee" eid="'+employeeId+'">x</button>'+
                     employeeName+'</div>');
         }
-        
-//        $.getJSON("meeting/getCommitteeMembers",
-//        {committeeId: committeeId}, 
-//        function(result){
-//            $("#membersSection").slideUp(speed);
-//            $("#membersSection").slideDown(speed);
-//            $("#members").empty();
-//            $.each(result, function(key, val){
-//              $("#members").append(
-//                    '<div>'+
-//                      '<input type="checkbox"/>'+ val.name+
-//                    '</div>'
-//                      );
-//            });
-//        });
-  
+
     });
     
     function getSelectedEmployees()
@@ -145,34 +130,49 @@ $(document).ready(function()
     }
     $("#search").click(function() 
     {    
-        var employeeIdsJson = getSelectedEmployees();
-        var length = $('#length').val();
-        
-        $.getJSON("/scheduler/meeting/getMeetingAvailability",
-        {employeeIdsJson: employeeIdsJson, length: length}, 
-        function(result){
-            
-            $('#resultSection').show();
-            $('#results').empty();
+        var error = validateForSearchingAvailability();
+        if(error === '')
+        {
+            var employeeIdsJson = getSelectedEmployees();
+            var length = $('#length').val();
 
-            $.each(result, function(key, val){
-                var room = val.room;
-                var start = val.start;
-                var end = val.end;
-                
-                $('#results').append('<div class="ui-corner-all result" style="box-sizing:border-box;"'+
-                        ' resultStatus=""'+
-                        ' room="'+room+'"'+
-                        ' start="'+start+'"'+
-                        ' end="'+end+'"'+
-                        '>'
-                        +'<b>room: </b>'+room + '<br/>'
-                        +'<b>start: </b>'+start + '<br/>'
-                        +'<b>end: </b>'+end
-                        +'</div>');
-                //style="width:100%;border-style:solid;border-size:1px;"
+            $.getJSON("/scheduler/meeting/getMeetingAvailability",
+            {employeeIdsJson: employeeIdsJson, length: length}, 
+            function(result){
+
+                $('#resultSection').show();
+                $('#results').empty();
+
+                $.each(result, function(key, val){
+                    var room = val.room;
+                    var start = val.start;
+                    var end = val.end;
+
+                    $('#results').append('<div class="ui-corner-all result" style="box-sizing:border-box;"'+
+                            ' resultStatus=""'+
+                            ' room="'+room+'"'+
+                            ' start="'+start+'"'+
+                            ' end="'+end+'"'+
+                            '>'
+                            +'<b>room: </b>'+room + '<br/>'
+                            +'<b>start: </b>'+start + '<br/>'
+                            +'<b>end: </b>'+end
+                            +'</div>');
+                    //style="width:100%;border-style:solid;border-size:1px;"
+                });
             });
-        });
+        }
+        else
+        {
+            $( "#messageBox" ).attr('title', 'Error');
+            $( "#messageBox" ).empty();
+            $( "#messageBox" ).append(
+                    '<p>' 
+                    + error
+                    +'</p>'
+                    );
+            $( "#messageBox" ).dialog();
+        }
     });
     
     $(document).on("click", ".result", function() 
@@ -228,25 +228,63 @@ $(document).ready(function()
         var end = selectedResult.attr('end');
         
         
-        var error = validate(employeeIdsJson, name, description,
+        var error = validateForCreateMeeting(employeeIdsJson, name, description,
         room, start, end);
         if(error === '')
         {
-            alert('no errors');
+            $.post("/scheduler/meeting/createMeetingInDatabase",
+            {employeeIdsJson: employeeIdsJson,
+            name: name,
+            description: description,
+            room: room,
+            start: start,
+            end: end
+            }, 
+            function(result){
+                
+                $( "#messageBox" ).empty();
+                $( "#messageBox" ).append(
+                        '<p>' 
+                        + 'Meeting was created.'
+                        +'</p>'
+                        );
+                $( "#messageBox" ).dialog();
+                $( "#messageBox" ).dialog('option', 'title', 'Successful');
+               
+            });
         }
         else
         {
-            $( "#errorMessage" ).empty();
-            $( "#errorMessage" ).append(
+            $( "#messageBox" ).attr('title', 'Error');
+            $( "#messageBox" ).empty();
+            $( "#messageBox" ).append(
                     '<p>' 
                     + error
                     +'</p>'
                     );
-            $( "#errorMessage" ).dialog();
+            $( "#messageBox" ).dialog();
         }
         
     });
-    function validate(employeeIdsJson, name, description,
+    function validateForSearchingAvailability()
+    {
+        var error = '';
+        var employeesSelected = $('#selectedEmployees').find('.selectedEmployee').length;
+
+        if(employeesSelected === 0)
+        {
+            error = error + '<br/>Please select participants';
+        }
+        var length = $('#length').val();
+        if(length ==='')
+        {
+            error = error + '<br/>Please enter length';
+        }
+        
+        
+        return error;
+    }
+    function validateForCreateMeeting(employeeIdsJson, name, description,
     room, start, end)
     {
         var error = '';
