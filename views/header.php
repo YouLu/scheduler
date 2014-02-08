@@ -2,14 +2,20 @@
 <html>
     <header>
         
-        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/jquery-ui-1.10.3.custom.css" />
-        
+        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/jquery-ui-1.10.4.custom.css" />
+   
+        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/menuBar.css" />
+  
         <script src="<?php echo basePath; ?>public/js/jquery.js"></script>
         <script src="<?php echo basePath; ?>public/js/jquery-ui-1.10.3.custom.js"></script>
         
-        <script src="<?php echo basePath; ?>public/js/default.js"></script>
-        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/default.css" />
         
+        
+        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/default.css" />
+        <script src="<?php echo basePath; ?>public/js/default.js"></script>
+       
+        <link rel="stylesheet" type="text/css" href="<?php echo basePath; ?>public/css/changeDefault.css" />
+        <script src="<?php echo basePath; ?>public/js/changeDefault.js"></script>
         
         <?php
             //public css
@@ -51,18 +57,16 @@
         <?php
         if($header)
         {?>
-        <div id="header" style="height: 25px;">
+        <!--<div id="header" style="height: 25px;"class="ui-widget-header">
                 Scheduler
-                
-            </div>
-        <?php 
+        </div>--><?php 
         } ?>
         <?php
         if($menue)
         {
             if(Session::get('role') == 'admin')
             {?>
-                <div id="menuSection">
+                <div id="menu-wrap">
                     <ul id="menu">
                         <li><a href="#">Employee</a></li>
                         <li><a href="#">Room</a></li>
@@ -72,13 +76,19 @@
             }
             else
             {
-            ?><div id="menuSection">
-                    <ul id="menu">
-                        <li><a href="/scheduler/employee">Employee</a></li>
+                ?><div id="menu-wrap" >
+            <ul id="menu" >
+                        <li><a href="/scheduler/employee">Employee</a>
+                        </li>
                         <li><a href="#">Schedule</a></li>
-                        <li><a href="/scheduler/meeting">Meeting</a></li>
+                        <li><a href="/scheduler/meeting">Meeting</a>
+                            <ul>
+                                <li><a href="/scheduler/meeting/createmeeting">Create Meeting</a></li>
+                            </ul>
+                        
+                        </li>
                     </ul>
-                </div><?php 
+                    </div><?php 
             }
             
-        }?><div id="content">
+            }?><div id="content">

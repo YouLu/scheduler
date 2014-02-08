@@ -1,14 +1,12 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: white;
 }
 
 #header{
-   
-    background: #202020;
-    color: white;
+
 }
+/*
 #menuSection
 {
     box-sizing:border-box;
@@ -28,19 +26,31 @@ body {
 #menu
 {
 
+}*/
+#menu-wrap
+{
+    height: 45px;
 }
 
 #content{
     box-sizing:border-box;
-    padding-top: 10px;
-    padding-right: 50px;
+    width: 960px;
+    padding-top: 20px;
+    
     font-size: large;
     background: white;
     color: #282828;
-    
-    display: inline-block;
-    
+
     overflow-y: scroll;
+    
+    border-style: solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    
+    border-color: lightgrey;
+   
  
 }
 
@@ -86,9 +96,5 @@ hr
 .section
 {
     padding-left: 10px;
-}
-.topLinkButton
-{
-    font-size: 12px;
 }
 
