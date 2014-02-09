@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section" style="background-color: #E6F0FF; ">
     <span style="font-size: larger; font-weight: bold;">Meetings</span>
     <!--
     <span style="float: right;">
@@ -7,23 +7,41 @@
 </div>
 <hr/>
 
-<div class="section">
+<div class="section ui-widget">
+   
 <?php
+    $meetingElementId=0;
     foreach ($this->data['meetings'] as $meeting)
     {?>
-        <div class="ui-corner-all meeting"
+        
+        <div meetingElementId="<?php echo $meetingElementId; ?>"
+            class="meeting ui-widget-content ui-corner-all"
             ownerId="<?php echo $meeting['owner']['id']; ?>"
             employeeId="<?php echo Session::get('id'); ?>"
             >
-            <div>
-                <span><b>name: </b><?php echo $meeting['name']; ?></span>
-                <span style="float: right;"><b>owner: </b><?php echo $meeting['owner']['name']; ?></span>
+            <div class="meeting-toppanel">
+                <span id="meeting-button-edit-<?php echo $meetingElementId;?>"
+                        class="meeting-button-edit"
+                        meetingElementId="<?php echo $meetingElementId; ?>"
+                    >
+                    <span class="ui-icon ui-icon-pencil" style="margin:0px; padding: 0px;"></span>
+                </span
+                ><span id="meeting-header-<?php echo $meetingElementId;?>" 
+                    class="meeting-header ui-state-default" meetingElementId="<?php echo $meetingElementId; ?>"
+                    >
+                    <span style="color: #80CC80;">
+                        <?php echo $meeting['name']; ?>
+                    </span>
+                    <span style="font-size: small;">
+                        <?php 
+                        echo ' ('.$meeting['start'].' to '. $meeting['end'] . ')'; 
+                        ?>
+                    </span>
+                </span>
             </div>
-
-            <b>description: </b><?php echo $meeting['description']; ?><br/>
-            <b>start: </b><?php echo $meeting['start']; ?> <br/>
-            <b>end: </b><?php echo $meeting['end']; ?> <br/>
-            <b>participants: </b>
+            <div id="meeting-content-<?php echo $meetingElementId;?>"
+                class="meeting-content" meetingElementId="<?php echo $meetingElementId; ?>">
+                <span style="font-size: medium; font-style: italic; color: #FFD7A6;">
                 <?php 
                 $i=0;
                 foreach ($meeting['members'] as $member) 
@@ -37,7 +55,13 @@
                     }
                     $i++;
                 }?>
+                </span>
+                <br/>
+                <span style="font-size: medium;"><?php echo $meeting['description']; ?></span>
+            </div>
         </div>
 <?php
+    $meetingElementId++;
     }?>
+   
 </div>

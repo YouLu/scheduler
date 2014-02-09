@@ -65,17 +65,6 @@ class MeetingController extends Controller
     private function getMeetings()
     {
         return array(
-            array('name'=>'meeting1',
-                'description'=>'test meeting',
-                'start'=> '2/3/2014 8.30am',
-                'end'=> '2/3/2014 10.30am',
-                'owner' => array('id'=>2, 'name'=>'employee2'),
-                'members' => array(
-                    array('id'=>2, 'name'=>'employee2'),
-                    array('id'=>3, 'name'=>'employee3')
-                    )
-                ),
-            
             array('name'=>'meeting2',
                 'description'=>'test meeting',
                 'start'=> '2/3/2014 8.30am',

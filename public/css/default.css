@@ -35,10 +35,10 @@ body {
 #content{
     box-sizing:border-box;
     width: 960px;
-    padding-top: 20px;
-    
+
     font-size: large;
     background: white;
+    background-color: #F2F7FF;
     color: #282828;
 
     overflow-y: scroll;
@@ -50,7 +50,6 @@ body {
     border-bottom-width: 0px;
     
     border-color: lightgrey;
-   
  
 }
 
@@ -92,9 +91,13 @@ hr
     border-right-style: none;
     
     border-color: lightgray;
+    margin: 0px;
+    padding: 0px;
 }
 .section
 {
     padding-left: 10px;
+    padding-top: 5px; padding-bottom: 5px;
+    
 }
 
