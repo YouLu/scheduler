@@ -6,13 +6,12 @@
 </div>
 <hr/>
 
-<div id="form">
-<div class="section">
+<div class="section form">
     <span style="display: inline-block;width: 200px; vertical-align: top;">
         Select Employees
     </span>
     <span style="display: inline-block; vertical-align: top;">
-        <select id="employees" style="width: 100px;">
+        <select id="employees" style="width: 100px; margin-bottom: 5px;">
             <option value="0"></option>
             <?php
             foreach ($this->data['employees'] as $employees)
@@ -27,18 +26,16 @@
             
         </div>
     </span>
-    
-</div>
+    <br/>
 
-<div class="section">
     <span style="display: inline-block;width: 200px;vertical-align: top;">
         Length
     </span>
     <span style="display: inline-block;vertical-align: top;">
         <input id="length" name ="length" type="text" style="width:100px;"/>
     </span>
-</div>
-<div class="section">
+    <br/>
+
     <span style="display: inline-block;width: 200px;vertical-align: top;">
         Name
     </span>
@@ -46,8 +43,8 @@
         <input id="name" type="text" style="width:100px;"
                />
     </span>
-</div>
-<div class="section">
+    <br/>
+
     <span style="display: inline-block;width: 200px;vertical-align: top;">
         Description
     </span>
@@ -57,15 +54,10 @@
     </span>
 </div>
     
-<hr/>
-<div class="section">
-    <button id="search">Search</button>
-</div>
-</div>
 
-<div id="resultSection" style="display: none;" class="section">
-    <hr/>
-    <div id="results">
+<div id="resultSection" style="display: none;" class="section ui-widget">
+    <div id="results-header"class="ui-widget-header ui-corner-top">Select Preferred Room and Time</div>
+    <div id="results" class="ui-widget-content ui-corner-bottom">
         
 
     </div>

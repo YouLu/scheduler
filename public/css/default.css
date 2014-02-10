@@ -60,27 +60,38 @@ body {
 }
 textarea
 {
-    border-color: lightgrey;
-    border-style: solid;
     font-size: large;
     color: #282828;
+    
+    border: 1px solid #999;
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   
 }
 input[type=text]
 {
-    border-color: lightgrey;
-    border-style: solid;
     height: 25px;
+    
     font-size: large;
     color: #282828;
+    
+    border: 1px solid #999;
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 select
 {
-    border-color: lightgrey;
-    border-style: solid;
     height: 25px;
+    
     font-size: large;
     color: #282828;
+    
+    border: 1px solid #999;
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
 
 hr
@@ -96,8 +107,7 @@ hr
 }
 .section
 {
-    padding-left: 10px;
-    padding-top: 5px; padding-bottom: 5px;
+    padding: 10px;
     
 }
 

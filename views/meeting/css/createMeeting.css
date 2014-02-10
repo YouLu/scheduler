@@ -1,3 +1,51 @@
+.form
+{
+margin: 10px;
+padding:10px;
+
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 14px;
+font-style: italic;
+line-height: 24px;
+font-weight: bold;
+color: #09C;
+text-decoration: none;
+
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+
+background: -webkit-linear-gradient(#F2F7FF, #E6F0FF); /* For Safari */
+background: -o-linear-gradient(#F2F7FF, #E6F0FF); /* For Opera 11.1 to 12.0 */
+background: -moz-linear-gradient(#F2F7FF, #E6F0FF); /* For Firefox 3.6 to 15 */
+background: linear-gradient(#F2F7FF, #E6F0FF); /* Standard syntax */
+background: linear-gradient( #F2F7FF, #E6F0FF);
+}
+input
+{
+    margin-bottom: 5px;
+}
+#resultSection
+{
+
+}
+#results
+{
+    padding: 10px;
+    padding-top: 0px;
+    max-height: 150px;
+    overflow-y: scroll;
+}
+#results-header
+{
+    font-size: medium;
+}
 .result
 {
     width:100%;
@@ -8,6 +56,20 @@
     border-color: lightgrey;
     margin-top: 10px;
     padding: 5px;
+}
+.selectedEmployee
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
+    font-style: italic;
+    color:#E6F0FF;
+    margin-right: 2px;
+    margin-bottom: 5px;
+}
+.deleteSelectedEmployee
+{
+    padding: 0px;
 }
 
 

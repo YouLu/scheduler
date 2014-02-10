@@ -103,12 +103,19 @@ $(document).ready(function()
         
         if(!exists)
         {
-            $('#selectedEmployees').append('<div id="eid'+employeeId+'"'+
-                    ' class="selectedEmployee" eid="'+employeeId+'"' +
+            $('#selectedEmployees').append('<span id="eid'+employeeId+'"'+
+                    ' class="selectedEmployee ui-corner-all ui-state-active"'+
+                    ' eid="'+employeeId+'"' +
                     '><button class="deleteSelectedEmployee" eid="'+employeeId+'">x</button>'+
-                    employeeName+'</div>');
+             
+                    employeeName+'</span>');
+            
+            searchAvailability();
         }
 
+    });
+    $( "#length" ).keyup(function() {
+        searchAvailability();
     });
     
     function getSelectedEmployees()
@@ -123,7 +130,7 @@ $(document).ready(function()
         return employeeIdsJson;
         
     }
-    $("#search").click(function() 
+    function searchAvailability() 
     {    
         var error = validateForSearchingAvailability();
         if(error === '')
@@ -143,73 +150,78 @@ $(document).ready(function()
                     var start = val.start;
                     var end = val.end;
 
-                    $('#results').append('<div class="ui-corner-all result"'+
+                    $('#results').append(
+                    '<div class=" ui-state-default ui-corner-all result"'+
                             ' resultStatus=""'+
                             ' room="'+room+'"'+
                             ' start="'+start+'"'+
                             ' end="'+end+'"'+
                             '>'
-                            +'<b>room: </b>'+room + '<br/>'
-                            +'<b>start: </b>'+start + '<br/>'
-                            +'<b>end: </b>'+end
+                            +'<b>room: </b>'+room 
+                            +'<span style="font-style:italic;"> ('+start + ' to ' +end + ')</span>'
                             +'</div>');
                   
                 });
             });
         }
-        else
-        {
-            $( "#messageBox" ).attr('title', 'Error');
-            $( "#messageBox" ).empty();
-            $( "#messageBox" ).append(
-                    '<p>' 
-                    + error
-                    +'</p>'
-                    );
-            $( "#messageBox" ).dialog();
-        }
-    });
+//        else
+//        {
+//            $( "#messageBox" ).attr('title', 'Error');
+//            $( "#messageBox" ).empty();
+//            $( "#messageBox" ).append(
+//                    '<p>' 
+//                    + error
+//                    +'</p>'
+//                    );
+//            $( "#messageBox" ).dialog();
+//        }
+    }
     
     $(document).on("click", ".result", function() 
     {  
-        $('#createMeetingButtonSection').show();
-        var previousSelection = $('#results').find('[resultStatus="selected"]');
-        var exists = previousSelection.length;
-        if(exists)
-        {
-            //turn off previous previous selection
-            previousSelection.css('background-color', 'white');
-            previousSelection.css('color', fontColor);
-            previousSelection.attr('resultStatus','');
-        }
-        //turn on new selection
-        $(this).css('background-color', 'grey');
-        $(this).css('color', 'white');
-        $(this).attr('resultStatus', 'selected');
+//        $('#createMeetingButtonSection').show();
+//        var previousSelection = $('#results').find('[resultStatus="selected"]');
+//        var exists = previousSelection.length;
+//        if(exists)
+//        {
+//            //turn off previous previous selection
+//            previousSelection.css('background-color', 'white');
+//            previousSelection.css('color', fontColor);
+//            previousSelection.attr('resultStatus','');
+//        }
+//        //turn on new selection
+//        $(this).css('background-color', 'grey');
+//        $(this).css('color', 'white');
+//        $(this).attr('resultStatus', 'selected');
+        createMeeting();
     });
     
     $(document).on("mouseover", ".result", function() 
     {
-        $(this).css('background-color', '#F8F8F8');
-        $(this).css('color', fontColor);
+//        $(this).css('background-color', '#F8F8F8');
+//        $(this).css('color', fontColor);
+            $(this).removeClass( "ui-state-default" )
+                    .addClass('ui-state-hover');
     });
     $(document).on("mouseout", ".result", function() 
     {
 
-        var resultStatus = $(this).attr('resultStatus');
-        if(resultStatus ==='selected')
-        {
-            $(this).css('background-color', 'grey');
-            $(this).css('color', 'white');
-        }
-        else
-        {
-            $(this).css('background-color', 'white');
-            $(this).css('color', fontColor);
-        }
+//        var resultStatus = $(this).attr('resultStatus');
+//        if(resultStatus ==='selected')
+//        {
+//            $(this).css('background-color', 'grey');
+//            $(this).css('color', 'white');
+//        }
+//        else
+//        {
+//            $(this).css('background-color', 'white');
+//            $(this).css('color', fontColor);
+//        }
+        $(this).removeClass( "ui-state-hover" )
+                    .addClass('ui-state-default');
     });
     
-    $(document).on("click", "#createMeetingButton", function() 
+    function createMeeting() 
     {
         var employeeIdsJson = getSelectedEmployees();
         var length = $('#length').val();
@@ -260,7 +272,7 @@ $(document).ready(function()
             $( "#messageBox" ).dialog();
         }
         
-    });
+    }
     function validateForSearchingAvailability()
     {
         var error = '';
